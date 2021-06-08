@@ -2,7 +2,7 @@
 
 This will become a chip-8-interpreter once it's fully complete. This is currently a work in progress - more to come soon.
 
-This project is done for fun and educational purpose.
+This project is done for fun and educational purpose to learn how the emulating of systems work.
 
 ## Docs & References
 
