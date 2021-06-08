@@ -16,6 +16,7 @@ This project is done for fun and educational purpose to learn how the emulation 
 - Input/Keyboard will be the component for the inputs.
 
 The following graphic shows the planned structure:
+
 ![Structure](assets/chip-8-java-structure.png "Planned structure of Chip-8 Java interpreter")
 
 ## Docs & References
