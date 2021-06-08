@@ -1,15 +1,15 @@
 public class Chip {
 
     private char[] memory; // 4 kb memory
-    private char[] registers; //16-bit register
+    private byte[] registers; //16-bit register
     private char index;//Address pointer
     private char pc; //program counter
 
     private char[] stack;
-    private int stackPointer; //maybe byte as datatype?
+    private int stackPointer; //MAYBE BYTE
 
-    private int delay_timer; //maybe byte as datatype?
-    private int sound_timer; //maybe byte as datatype?
+    private int delay_timer; //MAYBE BYTE
+    private int sound_timer; //MAYBE BYTE
 
     private byte[] keys;
 
@@ -17,7 +17,7 @@ public class Chip {
 
     public Chip() {
         memory = new char[4096];
-        registers = new char[16];
+        registers = new byte[16];
         pc = 0x200;
         index = 0x0;
 
@@ -30,6 +30,9 @@ public class Chip {
         keys = new byte[16];
 
         display = new byte[64 * 32];
+        display[1] = 1;
+        display[10] = 1;
+        display[100] = 1;
     }
 
     public void cycle() {
@@ -114,4 +117,10 @@ public class Chip {
         }
         //execute opcode here
     }
+
+    //Return Bytebuffer for displaying it
+    public byte[] getDisplay() {
+        return display;
+    }
+
 }
