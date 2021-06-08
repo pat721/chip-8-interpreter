@@ -12,6 +12,7 @@ public class Display extends JFrame {
         panel = new DisplayPanel(chip);
         setLayout(new BorderLayout());
         add(panel, BorderLayout.CENTER);
+        setResizable(false);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Chip-8 Interpreter");
         pack();

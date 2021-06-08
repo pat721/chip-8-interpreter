@@ -30,9 +30,6 @@ public class Chip {
         keys = new byte[16];
 
         display = new byte[64 * 32];
-        display[1] = 1;
-        display[10] = 1;
-        display[100] = 1;
     }
 
     public void cycle() {
