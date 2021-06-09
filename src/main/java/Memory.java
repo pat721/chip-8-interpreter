@@ -4,13 +4,13 @@
 public class Memory {
 
     // 4K Bytes of Memory
-    private byte[] memory;
+    public byte[] memory;
 
     //16-Level Stack
-    private char[] stack;
+    public char[] stack;
 
     //Display Memory
-    private byte[] displayBuffer;
+    public byte[] displayBuffer;
 
     public Memory() {
         memory = new byte[4096];

@@ -7,19 +7,19 @@ public class Register {
     private byte[] registers;
 
     //Index Register for storing memory address
-    private char index;
+    public char index;
 
     //Program Counter
-    private char pc;
+    public char pc;
 
     //Pointer for the Stack
-    private byte stackPointer;
+    public byte stackPointer;
 
     //Delay timer
-    private byte delay_timer;
+    public byte delay_timer;
 
     //Sound timer
-    private byte sound_timer;
+    public byte sound_timer;
 
     public Register() {
         registers = new byte[16];
