@@ -12,24 +12,22 @@ public class CPU {
     }
 
     public void cpu_cycle() {
+        char pc = register.pc;
         // Fetch opcode
-        // Read instruction from address
-        char opcode = 1;
-
-        /*
-        char opcode = (memory[pc]);
-        // Shift address 8 bit to the left to make room for second instruction
+        /**
+         * Read instruction from address
+         * Shift address 8 bit to the left to make room for second instruction
+         * Read second instruction from address
+         */
+        byte opcode = (memory.getMemory(pc));
         opcode <<= 8;
-        // Read second instruction from address
-        opcode |= memory[pc+1];
-        */
+        opcode |= memory.getMemory((char) (pc + 1));
 
         // Increment the program counter
-        //pc += 2;
+        pc += (char) 2;
 
         // decode opcode
         switch(opcode & 0xF000) {
-
             case 0x0000:
                 switch(opcode & 0x000F) {
                     case 0x0000: break; // 00E0 - Clears the screen.
