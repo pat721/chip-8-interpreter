@@ -5,6 +5,10 @@ public class Display extends JPanel {
 
     private byte[] displayBuffer;
 
+    private byte scale = 20;
+    private short width = 64;
+    private short height = 32;
+
     public Display(Memory memory) {
         displayBuffer = memory.getDisplayBuffer();
     }
@@ -16,14 +20,14 @@ public class Display extends JPanel {
             } else {
                 graphics.setColor(Color.WHITE);
             }
-            int x = (i % 64);
-            int y = (int) Math.floor(i / 64);
+            int x = (i % width);
+            int y = (int) Math.floor(i / width);
 
-            graphics.fillRect(x * 10, y * 10, 10, 10);
+            graphics.fillRect(x * scale, y * scale, scale, scale);
         }
     }
 
     public Dimension getPreferredSize() {
-        return new Dimension(64 * 10, 32 * 10);
+        return new Dimension(width * scale, height * scale);
     }
 }
