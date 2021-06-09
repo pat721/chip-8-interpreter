@@ -13,13 +13,13 @@ public class Register {
     private char pc;
 
     //Pointer for the Stack
-    private int stackPointer;
+    private byte stackPointer;
 
     //Delay timer
-    private int delay_timer;
+    private byte delay_timer;
 
     //Sound timer
-    private int sound_timer;
+    private byte sound_timer;
 
     public Register() {
         registers = new byte[16];
