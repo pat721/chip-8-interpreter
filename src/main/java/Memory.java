@@ -10,16 +10,16 @@ public class Memory {
     private char[] stack;
 
     //Display Memory
-    private byte[] display;
+    private byte[] displayBuffer;
 
     public Memory() {
         memory = new char[4096];
         stack = new char[16];
-        display = new byte[64*32];
+        displayBuffer = new byte[64 * 32];
     }
 
     // Return Bytebuffer for displaying it
-    public byte[] getDisplay() {
-        return display;
+    public byte[] getDisplayBuffer() {
+        return displayBuffer;
     }
 }
