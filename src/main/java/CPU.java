@@ -1,50 +1,33 @@
-public class Chip {
+/**
+ * Implements the CPU. The controlling as well as the processing.
+ */
+public class CPU {
 
-    private char[] memory; // 4 kb memory
-    private byte[] registers; //16-bit register
-    private char index;//Address pointer
-    private char pc; //program counter
+    private Register register;
+    private Memory memory;
 
-    private char[] stack;
-    private int stackPointer; //MAYBE BYTE
-
-    private int delay_timer; //MAYBE BYTE
-    private int sound_timer; //MAYBE BYTE
-
-    private byte[] keys;
-
-    private byte[] display;
-
-    public Chip() {
-        memory = new char[4096];
-        registers = new byte[16];
-        pc = 0x200;
-        index = 0x0;
-
-        stack = new char[16];
-        stackPointer = 0;
-
-        delay_timer = 0;
-        sound_timer = 0;
-
-        keys = new byte[16];
-
-        display = new byte[64 * 32];
+    public CPU(Memory memory, Register register) {
+        this.memory = memory;
+        this.register = register;
     }
 
-    public void cycle() {
-        //fetch opcode
-        //read instruction from address
+    public void cpu_cycle() {
+        // Fetch opcode
+        // Read instruction from address
+        char opcode = 1;
+
+        /*
         char opcode = (memory[pc]);
-        // shift address 8 bit to the left to make room for second instruction
+        // Shift address 8 bit to the left to make room for second instruction
         opcode <<= 8;
-        //read second instruction from address
+        // Read second instruction from address
         opcode |= memory[pc+1];
+        */
 
-        // increment the program counter
-        pc += 2;
+        // Increment the program counter
+        //pc += 2;
 
-        //decode opcode
+        // decode opcode
         switch(opcode & 0xF000) {
 
             case 0x0000:
@@ -112,12 +95,7 @@ public class Chip {
                 System.exit(0);
                 break;
         }
-        //execute opcode here
-    }
-
-    //Return Bytebuffer for displaying it
-    public byte[] getDisplay() {
-        return display;
+        // Execute opcode here
     }
 
 }
