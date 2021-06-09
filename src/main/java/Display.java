@@ -6,8 +6,8 @@ public class Display extends JPanel {
     private byte[] displayBuffer;
 
     private byte scale = 20;
-    private short width = 64;
-    private short height = 32;
+    private final short width = 64;
+    private final short height = 32;
 
     public Display(Memory memory) {
         displayBuffer = memory.getDisplayBuffer();
