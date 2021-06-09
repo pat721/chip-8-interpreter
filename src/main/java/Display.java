@@ -1,21 +1,29 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Display extends JFrame {
+public class Display extends JPanel {
 
-    private DisplayPanel panel;
+    private byte[] displayBuffer;
 
-    public Display(Chip chip) {
-        setPreferredSize(new Dimension(640, 320));
-        pack();
-        setPreferredSize(new Dimension(640 + getInsets().left + getInsets().right, 320 + getInsets().left + getInsets().right));
-        panel = new DisplayPanel(chip);
-        setLayout(new BorderLayout());
-        add(panel, BorderLayout.CENTER);
-        setResizable(false);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setTitle("Chip-8 Interpreter");
-        pack();
-        setVisible(true);
+    public Display(Memory memory) {
+        displayBuffer = memory.getDisplayBuffer();
+    }
+
+    public void paint(Graphics graphics) {
+        for (int i = 0; i < displayBuffer.length; i++) {
+            if (displayBuffer[i] == 0) {
+                graphics.setColor(Color.BLACK);
+            } else {
+                graphics.setColor(Color.WHITE);
+            }
+            int x = (i % 64);
+            int y = (int) Math.floor(i / 64);
+
+            graphics.fillRect(x * 10, y * 10, 10, 10);
+        }
+    }
+
+    public Dimension getPreferredSize() {
+        return new Dimension(64 * 10, 32 * 10);
     }
 }
